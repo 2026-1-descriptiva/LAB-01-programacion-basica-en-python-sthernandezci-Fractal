@@ -21,6 +21,7 @@ def pregunta_07():
     resultado = sorted([(valor, letras) for valor, letras in resultado.items()])
     return resultado
 print ("Asociacion entre columna 0 y columna 1:", pregunta_07())
+
 """
 Retorne una lista de tuplas que asocien las columnas 0 y 1. Cada tupla
 contiene un valor posible de la columna 2 y una lista con todas las letras
