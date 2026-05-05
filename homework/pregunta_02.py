@@ -4,14 +4,27 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
-
+import csv
 
 def pregunta_02():
-    """
-    Retorne la cantidad de registros por cada letra de la primera columna como
-    la lista de tuplas (letra, cantidad), ordendas alfabéticamente.
+    ruta="files/input/data.csv"
+    conteo = {}
+    with open(ruta, mode='r', encoding='utf-8', newline='') as archivo:
+        lector =csv.reader(archivo,delimiter='\t')
+        for fila in lector:
+            letra = fila[0].strip()
+            if letra in conteo:
+                conteo[letra] += 1
+            else:
+                conteo[letra] = 1
+    resultado = sorted(conteo.items())
+    return resultado
+print ("Cantidad de registros por cada letra de la primera columna:", pregunta_02())
+"""
+Retorne la cantidad de registros por cada letra de la primera columna como
+la lista de tuplas (letra, cantidad), ordendas alfabéticamente.
 
-    Rta/
-    [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
+Rta/
+[('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
 
-    """
+"""
